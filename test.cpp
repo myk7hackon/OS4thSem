@@ -2,8 +2,8 @@
 #include "stdio.h"
 
 int Process_no[20],Arrival_time[20],Burst_time[20],run_time[20],Priority[20],Job_status[20],completion_time[20],turn_around_time[20],wait_time[20],response_time[20];
-int Process_Queue[100];
-int num_processes,Process_Ptr=0;
+int ProcessQ[100];//to record the time at which the process enters the queue
+int num_processes,k=0;
 
 int suma(){
   int retval=0;
@@ -33,55 +33,52 @@ int main(){
     run_time[i]=Burst_time[i];
   }
 
+    //Find Min Arrival Time to find the process to execute first
+    int minARR=23456;
+    int P_min =120102;
+    for(int i=0;i<num_processes;i++){
+      if(Arrival_time[i]<minARR){
+        minARR=Arrival_time[i];
+        P_min = i;
+      }
+    }
+
+    ProcessQ[k++]=i;
 
   printf("\nGAANT CHART=>\n");
   while(suma()!=0){
 
-    int flag=0;
-    for(int i=0;i<num_processes;i++)
-    {
-      if(Job_status[i]==1){
-        if((flag==0)&&(Arrival_time[i]<=current_time)){
-          printf("\nProcess %d Executed from %d second to ",i+1,current_time);
-          flag =1;
-          if(run_time[i]==Burst_time[i]){
-            response_time[i]=current_time;
+      int flag=0;
+      for(int i=0;i<num_processes;i++)
+      {
+        if(Job_status[i]==1){
+          if((flag==0)&&(Enter_Q_At_Time[i]<=current_time)){
+            printf("\nProcess %d Executed from %d second to ",i+1,current_time);
+            flag =1;
+            if(run_time[i]==Burst_time[i]){
+              response_time[i]=current_time;
+            }
+            if(quanta<run_time[i]){
+              run_time[i]-=quanta;
+              current_time+=quanta;
+              Enter_Q_At_Time[i]=current_time;
+              printf("%d second",current_time);
+              //goto outer;
+            }
+            else{
+              current_time+=run_time[i];
+              completion_time[i]=current_time;
+              run_time[i]=0;
+              Job_status[i]=0;
+              printf("%d second",current_time);
+            }
+
           }
-          if(quanta<run_time[i]){
-            run_time[i]-=quanta;
-            current_time+=quanta;
-          }
-          else{
-            current_time+=run_time[i];
-            completion_time[i]=current_time;
-            run_time[i]=0;
-            Job_status[i]=0;
-          }
-          printf("%d second",current_time);
-        }
-        else if(Arrival_time[i]<current_time){
-          printf("\nProcess %d Executed from %d second to ",i+1,current_time);;
-          flag =1;
-          if(run_time[i]==Burst_time[i]){
-            response_time[i]=current_time;
-          }
-          if(quanta<run_time[i]){
-            run_time[i]-=quanta;
-            current_time+=quanta;
-          }
-          else{
-            current_time+=run_time[i];
-            completion_time[i]=current_time;
-            run_time[i]=0;
-            Job_status[i]=0;
-          }
-          printf("%d second",current_time);
         }
       }
-    }
-    if(flag==0){
-      current_time++;
-    }
+      if(flag==0){
+        current_time++;
+      }
 }
 
   for(int i=0;i<num_processes;i++){
@@ -98,3 +95,4 @@ int main(){
 
   return 1;
 }
+
