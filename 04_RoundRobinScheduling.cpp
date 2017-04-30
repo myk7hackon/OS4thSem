@@ -41,8 +41,11 @@ int main(){
     {
       if(Job_status[i]==1){
         if((flag==0)&&(Arrival_time[i]<=current_time)){
-          printf("\nProcess %d Executed",i+1);
+          printf("\nProcess %d Executed from %d second to ",i+1,current_time);
           flag =1;
+          if(run_time[i]==Burst_time[i]){
+            response_time[i]=current_time;
+          }
           if(quanta<run_time[i]){
             run_time[i]-=quanta;
             current_time+=quanta;
@@ -53,10 +56,14 @@ int main(){
             run_time[i]=0;
             Job_status[i]=0;
           }
+          printf("%d second",current_time);
         }
         else if(Arrival_time[i]<current_time){
-          printf("\nProcess %d Executed",i+1);
+          printf("\nProcess %d Executed from %d second to ",i+1,current_time);;
           flag =1;
+          if(run_time[i]==Burst_time[i]){
+            response_time[i]=current_time;
+          }
           if(quanta<run_time[i]){
             run_time[i]-=quanta;
             current_time+=quanta;
@@ -67,9 +74,8 @@ int main(){
             run_time[i]=0;
             Job_status[i]=0;
           }
+          printf("%d second",current_time);
         }
-
-
       }
     }
     if(flag==0){
@@ -80,7 +86,7 @@ int main(){
   for(int i=0;i<num_processes;i++){
     turn_around_time[i]=completion_time[i]-Arrival_time[i];
     wait_time[i] = turn_around_time[i]-Burst_time[i];
-    response_time[i]=wait_time[i];
+    response_time[i]=response_time[i]-Arrival_time[i];
   }
 
   for(int i=0;i<num_processes;i++){

@@ -46,13 +46,18 @@ int main(){
       current_time++;
     }
     else{
-    printf("\nProcess %d Executed",pno_to_execute+1);
+    printf("\nProcess %d Executed from %d second to ",pno_to_execute+1,current_time);
+
+    if(run_time[pno_to_execute]==0){
+      response_time[pno_to_execute]=current_time;
+    }
     current_time += 1;
     run_time[pno_to_execute]+=1;
     if(run_time[pno_to_execute]==Burst_time[pno_to_execute]){
       completion_time[pno_to_execute]=current_time;
       Job_status[pno_to_execute]=0; //=>Process Execution complete
     }
+    printf("%d second",current_time);
 
 
     }
@@ -61,7 +66,7 @@ int main(){
   for(int i=0;i<num_processes;i++){
     turn_around_time[i]=completion_time[i]-Arrival_time[i];
     wait_time[i] = turn_around_time[i]-Burst_time[i];
-    response_time[i]=wait_time[i];
+    response_time[i]=response_time[i]-Arrival_time[i];
   }
 
   for(int i=0;i<num_processes;i++){
