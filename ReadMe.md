@@ -33,4 +33,5 @@ NOTE: Print Completion Time, Turn Around Time, Wait Time and Response Time for E
   c) Worst Fit Algorithm[done]<br>
 
 8) WAP to implement First In First Out Page Replacement Algorithm.<br>
-9) WAP to implement SSTF and FCFS disk scheduling Algorithm.
+9) WAP to implement Optimal Page Replacement Algorithm.<br>
+10) WAP to implement SSTF and FCFS disk scheduling Algorithm.
