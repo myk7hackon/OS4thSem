@@ -8,7 +8,7 @@ Group 1:
 6) WAP to implement Multilevel Queue Scheduling.(4 Queues)<br>
 NOTE: Print Completion Time, Turn Around Time, Wait Time and Response Time for Each of the above Algorithm.<br>
 
-7) WAP to implement following memory Algorithm :
+7) WAP to implement following memory Algorithm :<br>
     a) Best Fit Algorithm[done]<br>
     b) Next Fit Algorithm[done]<br>
     c) Worst Fit Algorithm[done]<br>
@@ -27,7 +27,7 @@ Group 2:
 6) WAP to implement Multilevel Queue Scheduling.(4 Queues)<br>
 NOTE: Print Completion Time, Turn Around Time, Wait Time and Response Time for Each of the above Algorithm.<br>
 
-7) WAP to implement following memory Algorithm :
+7) WAP to implement following memory Algorithm :<br>
   a) Best Fit Algorithm[done]<br>
   b) Next Fit Algorithm[done]<br>
   c) Worst Fit Algorithm[done]<br>
