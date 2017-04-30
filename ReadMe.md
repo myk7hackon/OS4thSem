@@ -9,9 +9,10 @@ Group 1:
 NOTE: Print Completion Time, Turn Around Time, Wait Time and Response Time for Each of the above Algorithm.
 
 7) WAP to implement following memory Algorithm :
-    a) Best Fit Algorithm
-    b) Next Fit Algorithm
-    c) Worst Fit Algorithm
+    a) Best Fit Algorithm[done]
+    b) Next Fit Algorithm[done]
+    c) Worst Fit Algorithm[done]
+
 8) WAP to implement Least Recently Used Page Algorithm.
 9) WAP to implement Optimal Page Replacement Algorithm.
 10)WAP to implement SCAN Elevator Algorithm & CSCAN Algorithm.
@@ -27,9 +28,9 @@ Group 2:
 NOTE: Print Completion Time, Turn Around Time, Wait Time and Response Time for Each of the above Algorithm.
 
 7) WAP to implement following memory Algorithm :
-  a) Best Fit Algorithm
-  b) Next Fit Algorithm
-  c) Worst Fit Algorithm
+  a) Best Fit Algorithm[done]
+  b) Next Fit Algorithm[done]
+  c) Worst Fit Algorithm[done]
 
 8) WAP to implement First In First Out Page Replacement Algorithm.
 9) WAP to implement SSTF and FCFS disk scheduling Algorithm.
