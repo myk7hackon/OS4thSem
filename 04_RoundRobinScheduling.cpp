@@ -34,7 +34,7 @@ int main(){
   }
 
 
-  printf("\nGAANT CHART=>\n");
+
   while(suma()!=0){
 
     int flag=0;

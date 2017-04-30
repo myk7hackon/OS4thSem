@@ -24,11 +24,11 @@ int main(){
     scanf("%d",&Arrival_time[i]);
     printf("\nBurst Time : ");
     scanf("%d",&Burst_time[i]);
-    
+
     Job_status[i]=1;  //Implies Job unexecuted
   }
 
-  printf("\nGAANT CHART=>\n");
+
   while(suma()!=0){
     int min_burst = 23456;//Lower Priority value => Higher Priority Job
     int pno_to_execute=0;

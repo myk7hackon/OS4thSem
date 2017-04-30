@@ -43,7 +43,7 @@ int main(){
       float max_hrr = -2;
       int ind_max_hrr = -2;
       for(int i=0;i<num_processes;i++){
-        if((HRR[i]>max_hrr)&&(Job_status[i]==1)){
+        if((HRR[i]>max_hrr)&&(Job_status[i]==1)&&(Arrival_time[i]<=current_time)){
           max_hrr=HRR[i];
           ind_max_hrr=i;
         }

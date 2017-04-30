@@ -30,7 +30,7 @@ int main(){
   }
 
   printf("\nAssuming time quanta to be 1");
-  printf("\nGAANT CHART=>\n");
+  printf("\nGANTT CHART=>\n");
   while(suma()!=0){
     int min_priority = 23456;//Lower Priority value => Higher Priority Job
     int pno_to_execute=0;
