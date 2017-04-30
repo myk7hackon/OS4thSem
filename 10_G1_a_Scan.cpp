@@ -1,52 +1,74 @@
-#include<conio.h>
+#include<algorithm>
 #include<stdio.h>
-int main()
-{
- int i,j,sum=0,n;
- int d[20];
- int disk;   //loc of head
- int temp,max;     
- int dloc;   //loc of disk in array
- clrscr();
- printf("enter number of location\t");
- scanf("%d",&n);
- printf("enter position of head\t");
- scanf("%d",&disk);
- printf("enter elements of disk queue\n");
- for(i=0;i<n;i++)
- {
- scanf("%d",&d[i]);
- }
- d[n]=disk;
- n=n+1;
- for(i=0;i<n;i++)    // sorting disk locations
- {
-  for(j=i;j<n;j++)
-  {
-    if(d[i]>d[j])
-    {
-    temp=d[i];
-    d[i]=d[j];
-    d[j]=temp;
+
+using namespace std;
+
+int main(){
+
+	int DiskLoc[30];
+	int NDiskLoc,FirstStep,LastCyl,BegCyl=0,HeadStart;
+	int suma=0;
+	printf("\nEnter Last Cylinder's adress : ");
+	scanf("%d",&LastCyl);
+
+    printf("\nEnter the number of Disk locations : ");
+    scanf("%d",&NDiskLoc);
+
+    printf("\nEnter the disk Locations : ");
+    for(int i=0;i<NDiskLoc;i++){
+    	scanf("%d",&DiskLoc[i]);
     }
-  }
- }
- max=d[n];
- for(i=0;i<n;i++)   // to find loc of disc in array
- {
- if(disk==d[i]) { dloc=i; break;  }
- }
- for(i=dloc;i>=0;i--)
- {
- printf("%d -->",d[i]);
- }
- printf("0 -->");
- for(i=dloc+1;i<n;i++)
- {
- printf("%d-->",d[i]);
- }
- sum=disk+max;
-       printf("\nmovement of total cylinders %d",sum);
- getch();
- return 0;
+
+    printf("\nEnter the starting position for the head : ");
+    scanf("%d",&HeadStart);
+
+    sort(DiskLoc,DiskLoc+NDiskLoc);
+    int flag=0;//Will Decide whether to move left or to move right
+    int i=0;
+    while((DiskLoc[i]<HeadStart)&&(i<NDiskLoc)){
+    	i++;
+    }
+    i=i-1;
+    FirstStep = i;
+    int LeftDiff = HeadStart - DiskLoc[i];
+    int RightDiff= DiskLoc[i+1]-HeadStart;
+    printf("\n%d ---> ",HeadStart);
+    if(LeftDiff>RightDiff){
+    	//Move Right
+    	printf("%d ---> ",DiskLoc[i+1]);
+    	suma+=(DiskLoc[i+1] - HeadStart);
+
+    	for(int j=i+2;j<NDiskLoc;j++){
+    		suma+=(DiskLoc[j] - DiskLoc[j-1]);
+    		printf("%d ---> ",DiskLoc[j]);
+    	}
+    	suma += LastCyl - DiskLoc[NDiskLoc-1];
+    	printf("%d --->",LastCyl);
+        suma += LastCyl - DiskLoc[i];
+    	for(int j=i;j>0;j--){
+    		suma+=(DiskLoc[j] - DiskLoc[j-1]);
+    		printf("%d ---> ",DiskLoc[j]);
+    	}
+    	printf("%d\n",DiskLoc[0]);
+    }else{
+    	//Move Left
+    	printf("%d ---> ",DiskLoc[i]);
+    	suma+=(HeadStart - DiskLoc[i]);
+
+    	for(int j=i-1;j>=0;j--){
+    		suma+=(DiskLoc[j+1] - DiskLoc[j]);
+    		printf("%d ---> ",DiskLoc[j]);
+    	}
+    	suma += DiskLoc[0]-BegCyl;
+    	printf("%d --->",BegCyl);
+    	suma += DiskLoc[i+1]-BegCyl;
+    	for(int j=i+1;j<NDiskLoc-1;j++){
+    		suma+=(DiskLoc[j+1] - DiskLoc[j]);
+    		printf("%d ---> ",DiskLoc[j]);
+    	}
+    	printf("%d\n",DiskLoc[NDiskLoc-1]);
+    }
+
+    printf("\nTotal Head Movements : %d ",suma);
+    return 1;
 }

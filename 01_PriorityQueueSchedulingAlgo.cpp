@@ -29,7 +29,7 @@ int main(){
     Job_status[i]=1;  //Implies Job unexecuted
   }
 
-  printf("\nGANTT CHART=>\n");
+
   while(suma()!=0){
     int min_priority = 23456;//Lower Priority value => Higher Priority Job
     int pno_to_execute=0;
@@ -49,7 +49,7 @@ int main(){
     completion_time[pno_to_execute]=current_time;
     Job_status[pno_to_execute]=0; //=>Process Executed
     printf("|%d sec|P%d|%d sec|=>",completion_time[pno_to_execute]-Burst_time[pno_to_execute],pno_to_execute+1,completion_time[pno_to_execute]);
-    
+
     }
 }
 
