@@ -33,7 +33,7 @@ int main(){
   }
 
 
-  printf("\nGAANT CHART=>\n");
+  printf("\nGANTT CHART=>\n");
   while(suma()!=0){
 
     int flag=0;
