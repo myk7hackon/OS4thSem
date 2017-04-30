@@ -15,7 +15,7 @@ NOTE: Print Completion Time, Turn Around Time, Wait Time and Response Time for E
 
 8) WAP to implement Least Recently Used Page Algorithm.<br>
 9) WAP to implement Optimal Page Replacement Algorithm.<br>
-10)WAP to implement SCAN Elevator Algorithm & CSCAN Algorithm.
+10) WAP to implement SCAN Elevator Algorithm & CSCAN Algorithm.
 
 Group 2:
 
